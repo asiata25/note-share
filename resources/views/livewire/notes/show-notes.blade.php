@@ -4,6 +4,13 @@ use Livewire\Volt\Component;
 use App\Models\Note;
 
 new class extends Component {
+    function delete($id)
+    {
+        $note = auth()->user()->notes()->find($id);
+        $this->authorize('edit', $note);
+        $note->delete();
+    }
+
     public function with(): array
     {
         return [
@@ -23,17 +30,17 @@ new class extends Component {
             <x-button icon="plus" outline secondary label="New Note" :href="route('notes.create')" wire:navigate />
         </div>
         @foreach ($notes as $note)
-            <x-card title="{{ $note->title }}" rounded="xl">
-                <x-slot name="slot" class="truncate">
-                    {{ $note->body }}
-                </x-slot>
+            <x-card title="{{ $note->title }}" rounded="xl" wire:key="{{ $note->id }}">
+                {{ Str::words($note->body, 3) }}
 
                 <x-slot name="footer" class="flex items-center justify-between">
                     <small
                         class="font-medium text-gray-700">{{ \Carbon\Carbon::parse($note->send_date)->diffForHumans() }}</small>
                     <div class="flex gap-4">
-                        <x-button icon="document-magnifying-glass" label="Details" primary />
-                        <x-mini-button negative rounded flat><x-icon name="trash" class="w-5 h-5" /></x-mini-button>
+                        <x-button wire:navigate :href="route('notes.edit', $note)" icon="document-magnifying-glass" label="Details"
+                            primary />
+                        <x-mini-button wire:click="delete('{{ $note->id }}')" negative rounded flat><x-icon
+                                name="trash" class="w-5 h-5" /></x-mini-button>
                     </div>
                 </x-slot>
             </x-card>

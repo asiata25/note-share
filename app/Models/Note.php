@@ -13,6 +13,14 @@ class Note extends Model
 
     protected $guarded = ['id'];
 
+    protected function casts(): array
+    {
+        return [
+            'send_date' => 'date',
+            'is_published' => 'boolean',
+        ];
+    }
+
     function user() : BelongsTo {
         return $this->belongsTo(User::class);
     }
