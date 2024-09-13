@@ -1,66 +1,133 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
-
 <p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+  <img src="./logo.png" alt="ShareNote Logo" height="80">
 </p>
 
-## About Laravel
+# About ShareNote
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+ShareNote is a note-sharing application built with the TALL stack (Tailwind CSS, Alpine.js, Laravel, Livewire) and enhanced with Laravel Breeze and Wire UI. It allows users to create, read, update, and delete notes, as well as share them via email to specified addresses.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Tech Stack
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+<p align="center">
+  <img src="https://img.shields.io/badge/Laravel-11.9-FF2D20?style=for-the-badge&logo=laravel&logoColor=white" alt="Laravel">
+  <img src="https://img.shields.io/badge/Tailwind_CSS-3.1-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS">
+  <img src="https://img.shields.io/badge/Alpine.js-3.14.1-8BC0D0?style=for-the-badge&logo=alpine.js&logoColor=white" alt="Alpine.js">
+  <img src="https://img.shields.io/badge/Livewire-3.4-FB70A9?style=for-the-badge&logo=livewire&logoColor=white" alt="Livewire">
+  <img src="https://img.shields.io/badge/Laravel_Breeze-2.2-FF2D20?style=for-the-badge&logo=laravel&logoColor=white" alt="Laravel Breeze">
+  <img src="https://img.shields.io/badge/Wire_UI-2.1.2-35495E?style=for-the-badge&logoColor=white" alt="Wire UI">
+</p>
 
-## Learning Laravel
+## Features
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+-   **CRUD Operations**: Create, read, update, and delete personal notes.
+-   **Email Sharing**: Send notes to specified email addresses.
+-   **Privacy Control**: Only published notes are visible to other users.
+-   **Author-only Editing**: Ensures that only the note's author can make edits.
+-   **Scheduled Emails**: Automated email sending based on user-defined schedules.
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## Installation
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+1. Clone the repository:
 
-## Laravel Sponsors
+    ```
+    git clone https://github.com/asiata25/note-share.git
+    ```
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+2. Navigate to the project directory:
 
-### Premium Partners
+    ```
+    cd note-share
+    ```
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+3. Install PHP dependencies:
 
-## Contributing
+    ```
+    composer install
+    ```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+4. Install JavaScript dependencies:
 
-## Code of Conduct
+    ```
+    npm install
+    ```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+5. Copy the `.env.example` file to `.env` and configure your database settings.
 
-## Security Vulnerabilities
+6. Generate an application key:
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+    ```
+    php artisan key:generate
+    ```
 
-## License
+7. Run database migrations:
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+    ```
+    php artisan migrate
+    ```
+
+8. Pre-prepared Account:
+   The login credentials and other details for this pre-prepared account can be found in [here](database/seeders/DatabaseSeeder.php).
+
+## Email Configuration (Mailtrap)
+
+To set up email functionality using Mailtrap:
+
+1. Visit https://mailtrap.io/ and register for a new account.
+2. Go to Email Testing and click "Add Inbox". Name it after your application.
+3. Click on the newly created inbox and find the "Integrations" dropdown.
+4. Select "Laravel 9+" from the list to get the configuration code.
+5. Copy the provided credentials and replace the corresponding variables in your `.env` file:
+
+    ```
+    MAIL_MAILER=smtp
+    MAIL_HOST=sandbox.smtp.mailtrap.io
+    MAIL_PORT=2525
+    MAIL_USERNAME=your_username
+    MAIL_PASSWORD=your_password
+    ```
+
+## Running the Application
+
+1. Start the Laravel development server:
+
+    ```
+    php artisan serve
+    ```
+
+2. In a new terminal, compile and watch for asset changes:
+
+    ```
+    npm run dev
+    ```
+
+3. In another terminal, start the queue worker for processing scheduled emails:
+    ```
+    php artisan queue:work
+    ```
+
+    ### Terminal preview
+
+    <img src="terminal.png"/>
+The application should now be running at `http://localhost:8000`.
+
+## Scheduled Tasks
+
+Email scheduling is configured in [bootstrap/app.php](bootstrap/app.php). Review this file to understand or modify the scheduling logic.
+
+ _by default The schedule is set automatically every day at 9 am WIB. But you can change some of the note dates today, and run the command code below on another terminal_
+```
+php artisan app:send-scheduled-note
+```
+and you will be able to see incoming emails in your mailtrap account
+<br/>
+<br/>
+<img src="mailtrap.png"/>
+<br/>
+<br/>
+<p align="center">
+<a href="https://lutfikhoir.com/"><img src="https://img.shields.io/badge/Website-lutfikhoir.com-blue?style=for-the-badge&logo=google-chrome&logoColor=white&labelColor=101010" alt="Personal Website"></a>
+<a href="https://www.linkedin.com/in/lutfi-khoir-632524235/"><img src="https://img.shields.io/badge/LinkedIn-Lutfi%20Khoir-0077B5?style=for-the-badge&logo=linkedin&logoColor=white&labelColor=101010" alt="LinkedIn"></a>
+<a href="https://www.instagram.com/lutfi.khoirudin/"><img src="https://img.shields.io/badge/Instagram-@lutfi.khoirudin-E4405F?style=for-the-badge&logo=instagram&logoColor=white&labelColor=101010" alt="Instagram"></a>
+<a href="https://www.youtube.com/@lutfikhoir2502"><img src="https://img.shields.io/badge/YouTube-Lutfi%20Khoir-FF0000?style=for-the-badge&logo=youtube&logoColor=white&labelColor=101010" alt="YouTube Channel"></a>
+
+</p>
