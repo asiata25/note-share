@@ -31,7 +31,7 @@
                 @else
                     <x-badge flat md icon="envelope" label="{{ $author->email }}" />
                 @endif
-                <x-badge flat md pink icon="heart" label="{{ $note->heart_count }}" />
+                <livewire:heart-count :note="$note"/>
                 @can('edit', $note)
                     <x-button icon="paint-brush" label="Edit" class="ms-auto" :href="route('notes.edit', $note)" wire:navigate />
                 @endcan

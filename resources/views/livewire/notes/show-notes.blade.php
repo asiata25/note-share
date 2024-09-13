@@ -11,6 +11,11 @@ new class extends Component {
         $note->delete();
     }
 
+    public function placeholder()
+    {
+        return view('livewire.placeholders.spinner');
+    }
+
     public function with(): array
     {
         return [
