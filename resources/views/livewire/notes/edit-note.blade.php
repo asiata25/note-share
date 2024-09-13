@@ -64,7 +64,7 @@ new #[Layout('layouts.app')] class extends Component {
             <x-input icon="at-symbol" label="Recipient" wire:model="noteRecipient" placeholder="your friend's email" />
             <x-toggle id="color-positive" name="toggle" wire:model="noteIsPublished" label="Published" positive xl />
             <div class="flex justify-between gap-4 pt-4">
-                <x-button icon="arrow-uturn-left" flat secondary label="Back" :href="route('notes')" wire:navigate />
+                <x-button icon="arrow-uturn-left" flat secondary label="Back" :href="route('notes.detail', $note)" wire:navigate />
                 <x-button icon="cloud-arrow-up" positive label="Update" type="submit" class="flex-1" spinner />
             </div>
         </form>

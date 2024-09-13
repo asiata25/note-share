@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Note;
 use Illuminate\Support\Facades\Route;
 use Livewire\Volt\Volt;
 
@@ -16,6 +17,13 @@ Route::middleware(['auth', 'verified'])->group(function () {
         ->name('notes.create');
     Volt::route('notes/{note}/edit', 'notes.edit-note')
         ->name('notes.edit');
+    Route::get('notes/{note}', function (Note $note) {
+        return view('notes.detail-note', [
+            'note' => $note,
+            'author' => $note->user
+        ]);
+    })
+        ->name('notes.detail');
 });
 
 Route::view('profile', 'profile')
