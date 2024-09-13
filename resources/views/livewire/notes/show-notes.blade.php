@@ -44,7 +44,7 @@ new class extends Component {
                     <div class="flex gap-4">
                         <x-button wire:navigate :href="route('notes.detail', $note)" icon="document-magnifying-glass" label="Details"
                             primary />
-                        <x-mini-button wire:click="delete('{{ $note->id }}')" negative rounded flat><x-icon
+                        <x-mini-button wire:click="delete('{{ $note->id }}')" negative rounded flat spinner><x-icon
                                 name="trash" class="w-5 h-5" /></x-mini-button>
                     </div>
                 </x-slot>
