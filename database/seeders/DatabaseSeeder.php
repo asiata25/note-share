@@ -20,9 +20,9 @@ class DatabaseSeeder extends Seeder
         // });
 
         $user = User::factory()->create([
-            'name' => 'lutfi khoir',
-            'email' => 'asiatakh25@gmail.com',
-            'password' => 'asdqwe123'
+            'name' => 'Douglas Tromp',
+            'email' => 'verdie_koss21@yahoo.com',
+            'password' => 'password1'
         ]);
 
         Note::factory(11)->create(['user_id' => $user->id]);
