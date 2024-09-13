@@ -14,7 +14,7 @@ new class extends Component {
     public function with(): array
     {
         return [
-            'notes' => auth()->user()->notes()->orderBy('send_date', 'desc')->get(),
+            'notes' => auth()->user()->notes()->orderBy('send_date', 'asc')->get(),
         ];
     }
 }; ?>

@@ -20,7 +20,7 @@ new #[Layout('layouts.app')] class extends Component {
 
         $this->noteTitle = $note->title;
         $this->noteBody = $note->body;
-        $this->noteSendDate = $note->send_date;
+        $this->noteSendDate = date('Y-m-d', strtotime($note->send_date));
         $this->noteRecipient = $note->recipient;
         $this->noteIsPublished = $note->is_published;
     }

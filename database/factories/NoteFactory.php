@@ -18,10 +18,12 @@ class NoteFactory extends Factory
     public function definition(): array
     {
         return [
-            'title' => fake()->sentence(4),
-            'body' => fake()->sentence(10),
-            'recipient' => fake()->email(),
-            'send_date' => fake()->dateTimeBetween('-1 week'),
+            'title' => $this->faker->words(4, true),
+            'body' => $this->faker->paragraph(),
+            'recipient' => $this->faker->email(),
+            'send_date' => $this->faker->dateTimeBetween('now', '1 week'),
+            'is_published' => $this->faker->boolean(),
+            'heart_count' => $this->faker->numberBetween(0, 100),
             'user_id' => User::Factory()
         ];
     }
